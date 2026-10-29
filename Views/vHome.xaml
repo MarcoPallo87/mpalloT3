@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="mpalloT3.Views.vHome"
+             Title="vHome"
+             BackgroundColor="GhostWhite">
+
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="BlueViolet" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+
+        <Style TargetType="Entry">
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="TextColor" Value="DarkRed" />
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+
+        <Style TargetType="Picker">
+            <Setter Property="TextColor" Value="DarkRed" />
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="BlueViolet" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="Margin" Value="0,20,0,0" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView Orientation="Both">
+        <VerticalStackLayout Padding="25" Spacing="20">
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="2">
+                <Image Source="t32.jpg" HeightRequest="70" />
+                <Image Source="t31.png" HeightRequest="110" />
+            </HorizontalStackLayout>
+
+            <Label Text="Registro de Contacto" FontSize="24" HorizontalOptions="Center" Margin="0,0,0,10" />
+
+            <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto" 
+                  ColumnDefinitions="140, *" 
+                  RowSpacing="15" 
+                  ColumnSpacing="10">
+
+                <Label Grid.Row="0" Grid.Column="0" Text="Tipo ID:" />
+                <Picker Grid.Row="0" Grid.Column="1" x:Name="pckTipoId" TextColor="DarkRed" FontSize="18">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Seleccione un Tipo</x:String>
+                            <x:String>Cédula</x:String>
+                            <x:String>RUC</x:String>
+                            <x:String>Pasaporte</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <Label Grid.Row="1" Grid.Column="0" Text="Identificación:" />
+                <Entry Grid.Row="1" Grid.Column="1" x:Name="txtIdentificacion" Placeholder="Ingrese el número" />
+
+                <Label Grid.Row="2" Grid.Column="0" Text="Nombres:" />
+                <Entry Grid.Row="2" Grid.Column="1" x:Name="txtNombres" Placeholder="Ingrese nombres" />
+
+                <Label Grid.Row="3" Grid.Column="0" Text="Apellidos:" />
+                <Entry Grid.Row="3" Grid.Column="1" x:Name="txtApellidos" Placeholder="Ingrese apellidos" />
+
+                <Label Grid.Row="4" Grid.Column="0" Text="Fecha:" />
+                <DatePicker Grid.Row="4" Grid.Column="1" x:Name="dtpFecha" TextColor="DarkRed" FontSize="18" />
+
+                <Label Grid.Row="5" Grid.Column="0" Text="Correo:" />
+                <Entry Grid.Row="5" Grid.Column="1" x:Name="txtCorreo" Placeholder="correo@ejemplo.com" Keyboard="Email" />
+
+                <Label Grid.Row="6" Grid.Column="0" Text="Salario ($):" />
+                <Entry Grid.Row="6" Grid.Column="1" x:Name="txtSalario" Placeholder="0,00" Keyboard="Numeric" />
+
+            </Grid>
+
+            <Button x:Name="btnGuardar"
+                    Text="Guardar Contacto"
+                    Clicked="OnGuardarClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

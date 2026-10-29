@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="mpalloT3.Views.vContactos"
+             Title="Resumen del Contacto"
+             BackgroundColor="GhostWhite">
+
+    <!-- ESTILOS EXPLÍCITOS -->
+    <ContentPage.Resources>
+        <Style x:Key="EstiloTitulo" TargetType="Label">
+            <Setter Property="TextColor" Value="BlueViolet" />
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="Margin" Value="0,0,0,20" />
+        </Style>
+
+        <Style x:Key="EstiloDatos" TargetType="Label">
+            <Setter Property="TextColor" Value="DarkRed" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Margin" Value="0,5,0,5" />
+        </Style>
+
+        <Style x:Key="EstiloBoton" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="BlueViolet" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="Margin" Value="0,20,0,0" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView Orientation="Both">
+        <VerticalStackLayout Padding="25" Spacing="10">
+
+            <Image Source="lia126.png" HeightRequest="300" HorizontalOptions="Center" Margin="0,0,0,15" />
+
+            <Label Text="Datos del Contacto" Style="{StaticResource EstiloTitulo}" />
+
+            <Label x:Name="lblTipoId" Style="{StaticResource EstiloDatos}" />
+            <Label x:Name="lblIdentificacion" Style="{StaticResource EstiloDatos}" />
+            <Label x:Name="lblNombres" Style="{StaticResource EstiloDatos}" />
+            <Label x:Name="lblApellidos" Style="{StaticResource EstiloDatos}" />
+            <Label x:Name="lblFecha" Style="{StaticResource EstiloDatos}" />
+            <Label x:Name="lblCorreo" Style="{StaticResource EstiloDatos}" />
+            <Label x:Name="lblSalario" Style="{StaticResource EstiloDatos}" />
+
+            <!-- SEPARADOR VISUAL -->
+            <BoxView HeightRequest="1" Color="Gray" Margin="0,10,0,10"/>
+
+            <!-- DATOS CALCULADOS -->
+            <Label x:Name="lblAporte" Style="{StaticResource EstiloDatos}" FontAttributes="Bold" FontSize="18"/>
+
+            <!-- BOTON DE EXPORTAR -->
+            <Button x:Name="btnExportar"
+                    Text="Exportar a TXT"
+                    Clicked="OnExportarClicked"
+                    Style="{StaticResource EstiloBoton}" />
+            
+            <!-- Botón para volver e ingresar otro contacto -->
+            <Button x:Name="btnNuevoContacto"
+                    Text="Ingresar Otro Contacto"
+                    Clicked="OnNuevoContactoClicked"
+                    Style="{StaticResource EstiloBoton}" />
+
+            <Image Source="t286.png" HeightRequest="250" HorizontalOptions="Center" Margin="0,20,0,0" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
